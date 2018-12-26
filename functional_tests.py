@@ -46,7 +46,7 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
         # The page updates again, now showing both items
         self.check_for_row_in_list_table('1: Buy peacock feathers')
-        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
+        self.check_for_row_in_list_table('2: Use peacock feathers to make fly')
         
         # Edith wonders if the site will remember her list, but then
         # she sees that the site made her a unique url for her list. 

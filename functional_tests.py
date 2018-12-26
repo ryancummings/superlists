@@ -1,4 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
@@ -11,15 +13,12 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
 
-
-
-
         # Kathleen thinks of something she or Ryan needs to do.
         # She goes to the homepage of a new onine Todo app
         self.browser.get('http://localhost:8000')
 
         # She notices the page title and header mention to-do lists
-        self.assertIN('To-Do', self.browser.title)
+        self.assertIn('To-Do', self.browser.title)
         self.fail('Finish the test!')
         
         # She is invited to enter a to-do item straight away

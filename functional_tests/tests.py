@@ -33,7 +33,7 @@ class NewVisitorTest(LiveServerTestCase):
         # Kathleen thinks of something she or Ryan needs to do.
         # She goes to the homepage of a new onine Todo app
         self.browser.get(self.live_server_url)
-
+        
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
@@ -101,3 +101,26 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
+
+    def test_layout_and_styling(self):
+        # Edith goes to the home page
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        # She notices the input box is centered nicely
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(inputbox.location['x'] + inputbox.size['width'] / 2,
+                               512,
+                               delta=10
+                               )
+
+        # She starts a new list and sees input centered there too
+        inputbox.send_keys('testing')
+        inputbox.send_keys(Keys.ENTER)
+        self.wait_for_row_in_list_table('1: testing')
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=10
+            )

@@ -37,7 +37,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         # Kathleen thinks of something she or Ryan needs to do.
         # She goes to the homepage of a new onine Todo app
         self.browser.get(self.live_server_url)
-        
+
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text

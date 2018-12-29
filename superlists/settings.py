@@ -25,7 +25,8 @@ SECRET_KEY = 'yq62sh*t^%6p*$vz&gauf&u-cvddsg8ik1d%9*k^vvkp#^6eht'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['superlists-staging.ryanwcummings.com']
+ALLOWED_HOSTS = ['superlists-staging.ryanwcummings.com',
+                 'localhost',]
 
 
 # Application definition
